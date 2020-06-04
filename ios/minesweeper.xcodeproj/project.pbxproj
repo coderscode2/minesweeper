@@ -45,7 +45,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* minesweeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = minesweeperTests.m; sourceTree = "<group>"; };
 		083633A0D8CE84FBC0683C5E /* Pods-minesweeper-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minesweeper-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-minesweeper-tvOS/Pods-minesweeper-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = minesweeper/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = minesweeper/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* minesweeper.app */,
+				13B07F961A680F5B00A75B9A /* Minesweeper.app */,
 				00E356EE1AD99517003FC87E /* minesweeperTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* minesweeper-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* minesweeper-tvOSTests.xctest */,
@@ -238,7 +238,7 @@
 			);
 			name = minesweeper;
 			productName = minesweeper;
-			productReference = 13B07F961A680F5B00A75B9A /* minesweeper.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Minesweeper.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* minesweeper-tvOS */ = {
@@ -741,8 +741,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = minesweeper;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.Minesweeperved;
+				PRODUCT_NAME = Minesweeper;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -764,8 +764,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = minesweeper;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.Minesweeperved;
+				PRODUCT_NAME = Minesweeper;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

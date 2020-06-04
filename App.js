@@ -286,7 +286,7 @@ class App extends Component {
                   if (c.isMine) {
                     myTitle = 'X';
                   } else {
-                    myTitle = c.neighborsWithMine ? (c.neighborsWithMine + '') : '-';
+                    myTitle = c.neighborsWithMine ? (c.neighborsWithMine + '') : '';
                   }
                   return (
                     <View
