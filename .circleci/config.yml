@@ -29,6 +29,6 @@ workflows:
     jobs:
       - say-hello:
           post-steps:
-            - jira/notify
+            - jira/notify:
                 job_type: deployment
                 environment_type: production
