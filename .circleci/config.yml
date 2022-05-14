@@ -31,7 +31,7 @@ jobs:
           command: bundle exec fastlane android release
           name: Run Fastlane
 orbs:
-  rn: react-native-community/react-native@1.0.0
+  rn: react-native-community/react-native@7.0.0
   jira: circleci/jira@1.3.0
 
 version: 2.1
