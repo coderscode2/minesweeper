@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"
+          command: sjadjsahdkasd
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -31,5 +31,5 @@ workflows:
           post-steps:
             - jira/notify:
                 environment_type: staging
-                job_type: deployment
+                job_type: build
                 scan_commit_body: true
