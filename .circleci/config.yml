@@ -32,3 +32,4 @@ workflows:
             - jira/notify:
                 environment_type: staging
                 job_type: deployment
+                scan_commit_body: true
