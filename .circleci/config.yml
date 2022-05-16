@@ -66,7 +66,7 @@ workflows:
             - jira/notify:
                 environment: $(cat ./buildnumber.txt | awk -F_ '{print "ABC "$2}')
                 environment_type: unmapped
-                job_type: build
+                job_type: deployment
                 scan_commit_body: true
       - post-build:
           requires:
@@ -75,7 +75,7 @@ workflows:
             - jira/notify:
                 environment: $(cat ./buildnumber.txt | awk -F_ '{print "PQR "$2}')
                 environment_type: unmapped
-                job_type: build
+                job_type: deployment
                 scan_commit_body: true
 #       - rn/android_build:
 #           build_type: release
