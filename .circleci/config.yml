@@ -28,10 +28,20 @@ jobs:
   
   checkout_code:
     executor: rn/linux_js
+    environment:
+      CURRENT_BUILD: 0
+      CIRCLE_BUILD_NUM_ADJUST: 99
     steps:
       - checkout
-      - attach_workspace:
-          at: .
+      - run:
+          name: Writing Build Number to a text file
+          command: echo "BuildNumber_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > buildnumber.txt
+      - run: cat buildnumber.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+            - buildnumber.txt
+            - ./builddetails/
       - persist_to_workspace:
           paths: .
           root: .
@@ -52,9 +62,7 @@ version: 2.1
 workflows:
   test:
     jobs:
-      - pre-build
-      - checkout_code:
-          requires: pre-build
+      - checkout_code
       - analyse_js:
           requires:
             - checkout_code
