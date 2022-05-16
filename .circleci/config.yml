@@ -51,6 +51,7 @@ version: 2.1
 workflows:
   test:
     jobs:
+      - pre-build
       - checkout_code
       - analyse_js:
           requires:
