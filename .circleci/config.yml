@@ -8,7 +8,7 @@ jobs:
     steps:
       - jira/notify:
           environment: $(cat ./buildnumber.txt | awk -F_ '{print "Android Build Num "$2}')
-          environment_type: unmapped
+          environment_type: staging
           job_type: deployment
           scan_commit_body: true
           
@@ -21,7 +21,7 @@ jobs:
       - run: cat buildnumber.txt
       - jira/notify:
           environment: $(cat ./buildnumber.txt | awk -F_ '{print "iOS Buid Num "$2}')
-          environment_type: unmapped
+          environment_type: staging
           job_type: deployment
           scan_commit_body: true
 #       - run: echo $(cat ./buildnumber.txt | awk -F_ '{print $2}') >> $VED_YO
