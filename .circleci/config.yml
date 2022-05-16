@@ -65,7 +65,7 @@ workflows:
           post-steps:
             - jira/notify:
                 environment: $(cat ./buildnumber.txt | awk -F_ '{print "ABC "$2}')
-                environment_type: development
+                environment_type: unmapped
                 job_type: build
                 scan_commit_body: true
       - post-build:
@@ -74,7 +74,7 @@ workflows:
           post-steps:
             - jira/notify:
                 environment: $(cat ./buildnumber.txt | awk -F_ '{print "PQR "$2}')
-                environment_type: "ios staging"
+                environment_type: unmapped
                 job_type: build
                 scan_commit_body: true
 #       - rn/android_build:
