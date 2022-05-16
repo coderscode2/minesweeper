@@ -9,6 +9,7 @@ jobs:
       - run:
           name: Writing Build Number to a text file
           command: echo $CIRCLE_BUILD_NUM_ADJUST
+      - run: echo "ANDROID_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > $TEST
           
   analyse_js:
     executor: rn/linux_js
@@ -72,7 +73,7 @@ workflows:
                 - checkout_code
               post-steps:
                 - jira/notify:
-                    environment: echo $((cat ./buildnumber.txt | awk -F_ '{print $2}')"_Android")
+                    environment: $TEST
                     environment_type: development
                     job_type: deployment
                     scan_commit_body: true
