@@ -7,7 +7,7 @@ jobs:
       PLATFORM: ANDROID
     steps:
       - jira/notify:
-          environment: $(cat ./buildnumber.txt | awk -F_ '{print "Android Build Num "$2}')
+          environment: $(cat ./buildnumber.txt | awk -F_ '{print "Android Build# "$2}')
           environment_type: staging
           job_type: deployment
           scan_commit_body: true
@@ -20,7 +20,7 @@ jobs:
       - run: echo $CIRCLE_TOKEN
       - run: cat buildnumber.txt
       - jira/notify:
-          environment: $(cat ./buildnumber.txt | awk -F_ '{print "iOS Buid Num "$2}')
+          environment: $(cat ./buildnumber.txt | awk -F_ '{print "iOS Buid# "$2}')
           environment_type: staging
           job_type: deployment
           scan_commit_body: true
