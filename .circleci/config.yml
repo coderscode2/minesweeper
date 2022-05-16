@@ -5,7 +5,8 @@ jobs:
       - attach_workspace:
           at: .
       - run: echo $CIRCLE_BUILD_NUM
-      - run: echo 'export CIRCLE_BUILD_NUM="1234"' >> $BASH_ENV
+#       - run: echo 'export CIRCLE_BUILD_NUM="1234"' >> $BASH_ENV
+#       - run: echo $CIRCLE_BUILD_NUM
   
   checkout_code:
     executor: rn/linux_js
@@ -37,7 +38,7 @@ workflows:
             - checkout_code
           post-steps:
             - jira/notify:
-                environment: hdhhdhhdh
+                environment: "hdhhdhhdh"
                 environment_type: staging
                 job_type: build
                 scan_commit_body: true
