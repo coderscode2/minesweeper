@@ -4,10 +4,8 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - rn/yarn_install
-      - run:
-          command: yarn eslint
-          name: Run ESLint
+      - run: echo $CIRCLE_BUILD_NUM
+      - run: echo 'export CIRCLE_BUILD_NUM="1234"' >> $BASH_ENV
   
   checkout_code:
     executor: rn/linux_js
