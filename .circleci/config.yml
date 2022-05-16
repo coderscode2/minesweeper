@@ -1,5 +1,5 @@
 jobs:
-  pre-build: &pre-build
+  post-build: &post-build
     executor: rn/linux_js
     environment:
       CURRENT_BUILD: 0
@@ -7,13 +7,7 @@ jobs:
     steps:
       - run:
           name: Writing Build Number to a text file
-          command: echo "BuildNumber_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > buildnumber.txt
-      - run: cat buildnumber.txt
-      - persist_to_workspace:
-          root: .
-          paths:
-            - buildnumber.txt
-            - ./builddetails/
+          command: echo $CIRCLE_BUILD_NUM_ADJUST
           
   analyse_js:
     executor: rn/linux_js
@@ -69,9 +63,18 @@ workflows:
           post-steps:
             - jira/notify:
                 environment: $(cat ./buildnumber.txt | awk -F_ '{print $2}')
-                environment_type: testing
+                environment_type: development
                 job_type: deployment
                 scan_commit_body: true
+      - post-build: 
+          - requires:
+                - checkout_code
+              post-steps:
+                - jira/notify:
+                    environment: "Android "$(cat ./buildnumber.txt | awk -F_ '{print $2}')
+                    environment_type: development
+                    job_type: deployment
+                    scan_commit_body: true
 #       - rn/android_build:
 #           build_type: release
 #           requires:
