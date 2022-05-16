@@ -40,7 +40,7 @@ workflows:
             - jira/notify:
                 environment: "hdhhdhhdh"
                 environment_type: staging
-                job_type: build
+                job_type: deployment
                 scan_commit_body: true
 #       - rn/android_build:
 #           build_type: release
