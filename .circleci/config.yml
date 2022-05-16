@@ -9,7 +9,7 @@ jobs:
       - jira/notify:
           environment: $(cat ./buildnumber.txt | awk -F_ '{print "Android Build# "$2}')
           environment_type: staging
-          job_type: deployment
+          job_type: testing
           scan_commit_body: true
           
   analyse_js:
