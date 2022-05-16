@@ -4,6 +4,7 @@ jobs:
     environment:
       CURRENT_BUILD: 0
       CIRCLE_BUILD_NUM_ADJUST: 99
+      PLATFORM: ANDROID
     steps:
       - run:
           name: Writing Build Number to a text file
@@ -71,7 +72,7 @@ workflows:
                 - checkout_code
               post-steps:
                 - jira/notify:
-                    environment: "Android "$(cat ./buildnumber.txt | awk -F_ '{print $2}')
+                    environment: $PLATFORM"_"$(cat ./buildnumber.txt | awk -F_ '{print $2}')
                     environment_type: development
                     job_type: deployment
                     scan_commit_body: true
