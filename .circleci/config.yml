@@ -81,7 +81,7 @@ workflows:
 #             - rn/android_build
 #           post-steps:
 #             - jira/notify:
-#                 environment_type: staging
+#                 environment_type: testing
 #                 job_type: build
 #                 scan_commit_body: true
 #       - fastlane_release:
