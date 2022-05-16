@@ -68,15 +68,15 @@ workflows:
                 environment_type: development
                 job_type: deployment
                 scan_commit_body: true
-      - post-build: 
-          - requires:
-                - checkout_code
-              post-steps:
-                - jira/notify:
-                    environment: $(cat ./buildnumber.txt | awk -F_ '{print $2}')
-                    environment_type: development
-                    job_type: deployment
-                    scan_commit_body: true
+      - post-build:
+          requires:
+            - checkout_code
+          post-steps:
+            - jira/notify:
+                environment: $(cat ./buildnumber.txt | awk -F_ '{print $2}')"_Android"
+                environment_type: development
+                job_type: deployment
+                scan_commit_body: true
 #       - rn/android_build:
 #           build_type: release
 #           requires:
