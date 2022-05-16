@@ -71,7 +71,7 @@ workflows:
                 - checkout_code
               post-steps:
                 - jira/notify:
-                    environment: $(cat ./buildnumber.txt | awk -F_ '"Android"{print $2}')
+                    environment: echo "Android "$(cat ./buildnumber.txt | awk -F_ '{print $2}')
                     environment_type: development
                     job_type: deployment
                     scan_commit_body: true
