@@ -6,10 +6,11 @@ jobs:
       CIRCLE_BUILD_NUM_ADJUST: 99
       PLATFORM: ANDROID
     steps:
-      - run:
-          name: Writing Build Number to a text file
-          command: echo $CIRCLE_BUILD_NUM_ADJUST
-#       - run: echo "ANDROID_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > $TEST
+      - jira/notify:
+                  environment: $(cat ./buildnumber.txt | awk -F_ '{print "PQR "$2}')
+                  environment_type: unmapped
+                  job_type: deployment
+                  scan_commit_body: true
           
   analyse_js:
     executor: rn/linux_js
@@ -71,12 +72,6 @@ workflows:
       - post-build:
           requires:
             - checkout_code
-          post-steps:
-            - jira/notify:
-                environment: $(cat ./buildnumber.txt | awk -F_ '{print "PQR "$2}')
-                environment_type: unmapped
-                job_type: deployment
-                scan_commit_body: true
 #       - rn/android_build:
 #           build_type: release
 #           requires:
