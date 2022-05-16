@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Writing Build Number to a text file
           command: echo $CIRCLE_BUILD_NUM_ADJUST
-      - run: echo "ANDROID_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > $TEST
+#       - run: echo "ANDROID_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > $TEST
           
   analyse_js:
     executor: rn/linux_js
@@ -73,7 +73,7 @@ workflows:
                 - checkout_code
               post-steps:
                 - jira/notify:
-                    environment: $TEST
+                    environment: echo "BuildNumber_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_"
                     environment_type: development
                     job_type: deployment
                     scan_commit_body: true
