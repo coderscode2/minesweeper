@@ -1,19 +1,19 @@
 jobs:
   pre-build: &pre-build
-  executor: rn/linux_js
-  environment:
-    CURRENT_BUILD: 0
-    CIRCLE_BUILD_NUM_ADJUST: 99
-  steps:
-    - run:
-        name: Writing Build Number to a text file
-        command: echo "BuildNumber_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > buildnumber.txt
-    - run: cat buildnumber.txt
-    - persist_to_workspace:
-        root: .
-        paths:
-          - buildnumber.txt
-          - ./builddetails/
+    executor: rn/linux_js
+    environment:
+      CURRENT_BUILD: 0
+      CIRCLE_BUILD_NUM_ADJUST: 99
+    steps:
+      - run:
+          name: Writing Build Number to a text file
+          command: echo "BuildNumber_"$(( $CIRCLE_BUILD_NUM + $CIRCLE_BUILD_NUM_ADJUST ))"_" > buildnumber.txt
+      - run: cat buildnumber.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+            - buildnumber.txt
+            - ./builddetails/
           
   analyse_js:
     executor: rn/linux_js
