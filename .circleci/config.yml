@@ -9,7 +9,7 @@ jobs:
       - jira/notify:
                   environment: $(cat ./buildnumber.txt | awk -F_ '{print "PQR "$2}')
                   environment_type: unmapped
-                  job_type: deployment
+                  job_type: development
                   scan_commit_body: true
           
   analyse_js:
@@ -19,6 +19,11 @@ jobs:
           at: .
       - run: echo $CIRCLE_TOKEN
       - run: cat buildnumber.txt
+      - jira/notify:
+                environment: $(cat ./buildnumber.txt | awk -F_ '{print "ABC "$2}')
+                environment_type: development
+                job_type: deployment
+                scan_commit_body: true
 #       - run: echo $(cat ./buildnumber.txt | awk -F_ '{print $2}') >> $VED_YO
 #       - run: echo 'export CIRCLE_BUILD_NUM="1234"' >> $BASH_ENV
 #       - run: echo $CIRCLE_BUILD_NUM
@@ -63,12 +68,6 @@ workflows:
       - analyse_js:
           requires:
             - checkout_code
-          post-steps:
-            - jira/notify:
-                environment: $(cat ./buildnumber.txt | awk -F_ '{print "ABC "$2}')
-                environment_type: unmapped
-                job_type: deployment
-                scan_commit_body: true
       - post-build:
           requires:
             - checkout_code
