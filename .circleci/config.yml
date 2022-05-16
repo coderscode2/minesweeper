@@ -30,6 +30,8 @@ jobs:
     executor: rn/linux_js
     steps:
       - checkout
+      - attach_workspace:
+          at: .
       - persist_to_workspace:
           paths: .
           root: .
@@ -51,7 +53,8 @@ workflows:
   test:
     jobs:
       - pre-build
-      - checkout_code
+      - checkout_code:
+          requires: pre-build
       - analyse_js:
           requires:
             - checkout_code
