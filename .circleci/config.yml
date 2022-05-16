@@ -37,18 +37,24 @@ workflows:
       - analyse_js:
           requires:
             - checkout_code
-      - rn/android_build:
-          build_type: release
-          requires:
-            - analyse_js
-      - rn/android_test:
-          requires:
-            - rn/android_build
           post-steps:
             - jira/notify:
+                environment: hdhhdhhdh
                 environment_type: staging
                 job_type: build
                 scan_commit_body: true
-      - fastlane_release:
-          requires:
-            - rn/android_test
+#       - rn/android_build:
+#           build_type: release
+#           requires:
+#             - analyse_js
+#       - rn/android_test:
+#           requires:
+#             - rn/android_build
+#           post-steps:
+#             - jira/notify:
+#                 environment_type: staging
+#                 job_type: build
+#                 scan_commit_body: true
+#       - fastlane_release:
+#           requires:
+#             - rn/android_test
