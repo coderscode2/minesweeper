@@ -69,7 +69,7 @@ workflows:
           post-steps:
             - jira/notify:
                 environment: $(cat ./buildnumber.txt | awk -F_ '{print $2}')
-                environment_type: staging
+                environment_type: testing
                 job_type: build
                 scan_commit_body: true
 #       - rn/android_build:
