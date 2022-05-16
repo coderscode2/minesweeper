@@ -22,7 +22,7 @@ jobs:
           at: .
       - run: echo $CIRCLE_BUILD_NUM
       - run: cat buildnumber.txt
-      - run: echo $(cat ../buildnumber.txt | awk -F_ '{print $2}')
+      - run: echo $(cat ./buildnumber.txt | awk -F_ '{print $2}')
 #       - run: echo 'export CIRCLE_BUILD_NUM="1234"' >> $BASH_ENV
 #       - run: echo $CIRCLE_BUILD_NUM
   
